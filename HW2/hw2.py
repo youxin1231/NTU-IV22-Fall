@@ -57,7 +57,7 @@ def main():
     S = P.copy()
     Temp = 1000
     S_star = S.copy()
-    r = 0.99999
+    r = 0.9999
 
     while (Temp > 1):
         # Pick a random neighbor S' of S
@@ -82,5 +82,7 @@ def main():
     # Print S_star
     for i in range(len(S_star)):
         print(S_star[i])
+    print('Objective time:', cost(n, tau, S_star, C, T))
+    
 if __name__ == "__main__":
     main()
