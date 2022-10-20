@@ -3,6 +3,7 @@ import math
 from random import seed, sample, random
 import time
 start_time = time.time()
+seed(59)
 
 def cost(n, tau, P, C, T):
     # Find B
@@ -87,5 +88,6 @@ def main():
         print(S_star[i])
     print("Objective time:", cost(n, tau, S_star, C, T))
     print(f"Total runtime: {time.time() - start_time:.2f} seconds")
+
 if __name__ == "__main__":
     main()
