@@ -1,6 +1,8 @@
 from logging import INFO
 import math
-from random import sample, random
+from random import seed, sample, random
+import time
+start_time = time.time()
 
 def cost(n, tau, P, C, T):
     # Find B
@@ -57,7 +59,7 @@ def main():
     S = P.copy()
     Temp = 1000
     S_star = S.copy()
-    r = 0.99
+    r = 0.999
 
     while (Temp > 1):
         # Pick a random neighbor S' of S
@@ -70,7 +72,6 @@ def main():
 
         if(cost_S_prime < cost_S):
             S_star = S_prime.copy()
-            lowest_cost = cost_S_prime
         
         C_delta = cost_S_prime - cost_S
         if C_delta <= 0:
@@ -84,7 +85,7 @@ def main():
     # Print S_star
     for i in range(len(S_star)):
         print(S_star[i])
-    print('Objective time:', cost(n, tau, S_star, C, T))
-
+    print("Objective time:", cost(n, tau, S_star, C, T))
+    print(f"Total runtime: {time.time() - start_time:.2f} seconds")
 if __name__ == "__main__":
     main()
