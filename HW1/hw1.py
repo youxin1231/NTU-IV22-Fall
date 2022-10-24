@@ -44,4 +44,7 @@ for i in range(n):
 
 # Print R
 for i in range(len(R)):
-    print(R[i])
+    if (R[i] == None):
+        print("Unschedulable")
+    else:
+        print(R[i])
